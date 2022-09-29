@@ -58,10 +58,12 @@ public class JobTest {
                         "\nCore Competency: " + job4.getCoreCompetency() +
                         "\n";
 
-        Character firstLine = job4.toString().charAt(0);
-        Character lastLine = job4.toString().charAt(job4.toString().length()-1);
+        String firstLine = job4.toString().substring(0,1);
+        String lastLine = job4.toString().substring(job4.toString().length()-1,job4.toString().length());
 
-        assertEquals(firstLine, lastLine);
+        assertEquals(firstLine, "\n");
+        assertEquals(lastLine, "\n");
+        assertEquals(firstLine,lastLine);
     }
 
     @Test

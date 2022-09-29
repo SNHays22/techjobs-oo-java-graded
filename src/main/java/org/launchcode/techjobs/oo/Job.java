@@ -100,10 +100,10 @@ public class Job {
     public String toString(){
         String output;
 
-        if(name == "" || name == null || employer.getValue() == "" || employer.getValue() == null || location.getValue() == "" || location.getValue() == null ||
-        positionType.getValue() == "" || positionType.getValue() == null || coreCompetency.getValue() == "" || coreCompetency.getValue() == null){
+        if(name == "" && employer.getValue() == "" && location.getValue() == "" && positionType.getValue() == "" && coreCompetency.getValue() == ""){
             output = "OOPS! This job does not seem to exist.";
         }
+
         else {
             if (name == "" || name == null) {
                 name = "Data not available";
