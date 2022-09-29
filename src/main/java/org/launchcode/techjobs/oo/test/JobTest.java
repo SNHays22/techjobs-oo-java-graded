@@ -44,7 +44,7 @@ public class JobTest {
         Job job4 = new Job("Bottle Capper", new Employer("Duff"), new Location("Springfield"), new PositionType("Quality Control"), new CoreCompetency("Attentive"));
         Job job5 = new Job("Bottle Capper", new Employer("Duff"), new Location("Springfield"), new PositionType("Quality Control"), new CoreCompetency("Attentive"));
 
-        assertNotEquals(job4.getId(), job5.getId());
+        assertFalse(job4.getId() == job5.getId());
     }
 
     @Test
@@ -91,6 +91,15 @@ public class JobTest {
                 "\n";
 
         assertEquals(output, job4.toString());
+    }
+
+    @Test
+    public void testToStringHandlesEmptyString(){
+        Job job6 = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+
+        String output = "OOPS! This job does not seem to exist.";
+
+        assertEquals(output, job6.toString());
     }
 
 }

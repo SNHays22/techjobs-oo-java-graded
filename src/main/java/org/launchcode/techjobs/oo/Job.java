@@ -100,37 +100,40 @@ public class Job {
     public String toString(){
         String output;
 
-//        if(output == "" || output == null){
-//            output = "OOPS! This job does not seem to exist.";
-//        }
-        if(name == "" || name == null){
-            name = "Data not available";
+        if(name == "" || name == null || employer.getValue() == "" || employer.getValue() == null || location.getValue() == "" || location.getValue() == null ||
+        positionType.getValue() == "" || positionType.getValue() == null || coreCompetency.getValue() == "" || coreCompetency.getValue() == null){
+            output = "OOPS! This job does not seem to exist.";
         }
+        else {
+            if (name == "" || name == null) {
+                name = "Data not available";
+            }
 
-        if(employer.getValue() == "" || employer.getValue() == null){
-            employer.setValue("Data not available");
+            if (employer.getValue() == "" || employer.getValue() == null) {
+                employer.setValue("Data not available");
+            }
+
+            if (location.getValue() == "" || location.getValue() == null) {
+                location.setValue("Data not available");
+            }
+
+            if (positionType.getValue() == "" || positionType.getValue() == null) {
+                positionType.setValue("Data not available");
+            }
+
+            if (coreCompetency.getValue() == "" || coreCompetency.getValue() == null) {
+                coreCompetency.setValue("Data not available");
+            }
+
+
+            output = "\nID: " + id +
+                    "\nName: " + name +
+                    "\nEmployer: " + employer.getValue() +
+                    "\nLocation: " + location.getValue() +
+                    "\nPosition Type: " + positionType.getValue() +
+                    "\nCore Competency: " + coreCompetency.getValue() +
+                    "\n";
         }
-
-        if(location.getValue() == "" || location.getValue() == null){
-            location.setValue("Data not available");
-        }
-
-        if(positionType.getValue() == "" || positionType.getValue() == null){
-            positionType.setValue("Data not available");
-        }
-
-        if(coreCompetency.getValue() == "" || coreCompetency.getValue() == null){
-            coreCompetency.setValue("Data not available");
-        }
-
-
-        output = "\nID: " + id +
-                "\nName: " + name +
-                "\nEmployer: " + employer.getValue() +
-                "\nLocation: " + location.getValue() +
-                "\nPosition Type: " + positionType.getValue() +
-                "\nCore Competency: " + coreCompetency.getValue() +
-                "\n";
 
         return output;
     }
