@@ -47,4 +47,50 @@ public class JobTest {
         assertNotEquals(job4.getId(), job5.getId());
     }
 
+    @Test
+    public void testToStringStartsAndEndsWithNewLine(){
+        Job job4 = new Job("Bottle Capper", new Employer("Duff"), new Location("Springfield"), new PositionType("Quality Control"), new CoreCompetency("Attentive"));
+        String output = "\nID: " + job4.getId() +
+                        "\nName: " + job4.getName() +
+                        "\nEmployer: " + job4.getEmployer() +
+                        "\nLocation: " + job4.getLocation() +
+                        "\nPosition Type: " + job4.getPositionType() +
+                        "\nCore Competency: " + job4.getCoreCompetency() +
+                        "\n";
+
+        Character firstLine = job4.toString().charAt(0);
+        Character lastLine = job4.toString().charAt(job4.toString().length()-1);
+
+        assertEquals(firstLine, lastLine);
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData(){
+        Job job4 = new Job("Bottle Capper", new Employer("Duff"), new Location("Springfield"), new PositionType("Quality Control"), new CoreCompetency("Attentive"));
+        String output = "\nID: " + job4.getId() +
+                "\nName: " + job4.getName() +
+                "\nEmployer: " + job4.getEmployer() +
+                "\nLocation: " + job4.getLocation() +
+                "\nPosition Type: " + job4.getPositionType() +
+                "\nCore Competency: " + job4.getCoreCompetency() +
+                "\n";
+
+        assertEquals(output, job4.toString());
+    }
+
+
+    @Test
+    public void testToStringHandlesEmptyField(){
+        Job job4 = new Job("", new Employer(""), new Location("Springfield"), new PositionType("Quality Control"), new CoreCompetency("Attentive"));
+        String output = "\nID: " + job4.getId() +
+                "\nName: Data not available" +
+                "\nEmployer: Data not available" +
+                "\nLocation: " + job4.getLocation() +
+                "\nPosition Type: " + job4.getPositionType() +
+                "\nCore Competency: " + job4.getCoreCompetency() +
+                "\n";
+
+        assertEquals(output, job4.toString());
+    }
+
 }
